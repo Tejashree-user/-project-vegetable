@@ -1,0 +1,13 @@
+tensorflow>=2.10
+keras
+numpy
+pandas
+scikit-learn
+matplotlib
+seaborn
+flask
+Pillow
+opencv-python
+tqdm
+jupyter
+requests
