@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="240" viewBox="0 0 400 240">
+  <rect width="100%" height="100%" fill="#fbfffd"/>
+  <g transform="translate(200,120)">
+    <circle r="60" fill="#e6f7ec" stroke="#cfe7d3"/>
+    <text x="0" y="6" font-family="Arial,Helvetica" font-size="18" text-anchor="middle" fill="#6b7a86">Preview</text>
+  </g>
+</svg>

@@ -1,0 +1,39 @@
+:root{--bg:#f5f7fb;--card:#ffffff;--muted:#6b7a86;--accent:#2f8f4e}
+*{box-sizing:border-box}
+body{font-family:Inter,Segoe UI,Arial,Helvetica,sans-serif;background:var(--bg);color:#12202b;margin:0}
+.container{max-width:920px;margin:36px auto;padding:20px;background:var(--card);border-radius:12px;box-shadow:0 10px 30px rgba(17,24,39,0.06)}
+.header{display:flex;flex-direction:column;gap:2px}
+h1{margin:0;font-size:1.6rem}
+.tag{color:var(--muted);margin:0}
+.uploader{display:flex;gap:18px;margin-top:16px;align-items:flex-start}
+.file-label{display:inline-block;padding:10px 12px;border-radius:8px;background:#f0fbf3;border:1px dashed #cfe7d3;cursor:pointer}
+.file-label input{display:none}
+.btn{background:var(--accent);color:#fff;border:none;padding:10px 14px;border-radius:8px;cursor:pointer}
+.preview{flex:1}
+.preview-inner{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px;border-radius:8px;border:1px solid #eef3f6;background:#fcfffd;min-height:160px}
+.preview img{max-width:100%;max-height:200px;border-radius:6px;object-fit:contain;display:block}
+#previewText{margin-top:8px;color:var(--muted)}
+.result{margin-top:18px;padding:14px;border-radius:10px;background:linear-gradient(180deg,#fbfff9,#f7fff6);border:1px solid #e6f1e8}
+.alert{color:#7a1b1b;background:#fff0f0;padding:8px;border-radius:8px;margin-bottom:12px}
+.note{color:var(--muted);font-size:0.9rem}
+
+.top-list{display:flex;flex-direction:column;gap:10px}
+.top-item{display:flex;align-items:center;gap:12px}
+.top-label{width:140px;font-weight:600}
+.bar-wrap{flex:1;background:#eef6ef;border-radius:6px;height:14px;overflow:hidden}
+.bar{height:14px;background:linear-gradient(90deg,var(--accent),#57b67c)}
+.top-conf{width:60px;text-align:right;color:var(--muted)}
+
+.gallery{margin-top:20px}
+.samples{display:flex;gap:12px}
+.sample{width:120px;height:80px;object-fit:cover;border-radius:6px;border:1px solid #eef3f6;cursor:pointer}
+
+
+/* responsive */
+@media (max-width:720px){
+	.container{margin:18px;padding:14px}
+	.uploader{flex-direction:column}
+	.preview-inner{min-height:120px}
+	h1{font-size:1.3rem}
+}
+
