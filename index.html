@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GreenClassify — Upload</title>
+    <link rel="stylesheet" href="/static/style.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>GreenClassify</h1>
+        <p class="tag">Upload an image and get a vegetable classification</p>
+      </div>
+
+      {% if error %}
+        <div class="alert">{{ error }}</div>
+      {% endif %}
+
+      <div class="uploader">
+        <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+          <label class="file-label">
+            <input id="fileInput" type="file" name="file" accept="image/*" required>
+            <span class="choose">Choose image</span>
+          </label>
+          <button type="submit" class="btn">Classify</button>
+        </form>
+
+        <div class="preview">
+          <div class="preview-inner">
+            <img id="previewImg" src="/static/placeholder.svg" alt="preview" />
+            <div id="previewText">No image selected</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="result">
+        <!-- result area — filled by server render or client JS -->
+        {% if result %}
+          <h2>Result</h2>
+          {% if result.top3 %}
+            <div class="top-list">
+              {% for p in result.top3 %}
+                <div class="top-item">
+                  <div class="top-label">{{ p.label }}</div>
+                  <div class="bar-wrap">
+                    <div class="bar" style="width: {{ (p.confidence*100)|round(1) }}%"></div>
+                  </div>
+                  <div class="top-conf">{{ '%.2f'|format(p.confidence*100) }}%</div>
+                </div>
+              {% endfor %}
+            </div>
+          {% else %}
+            <p><strong>Label:</strong> {{ result.label }}</p>
+            <p><strong>Confidence:</strong> {{ '%.2f'|format(result.confidence*100) }}%</p>
+          {% endif %}
+        {% endif %}
+      </div>
+
+      <hr>
+      <p class="note">Or use the API at <code>/predict</code> (POST form/file)</p>
+
+      <section class="gallery">
+        <h3>Sample images</h3>
+        <div class="samples">
+          <img class="sample" src="/static/samples/tomato.jpg" alt="tomato" data-name="tomato">
+          <img class="sample" src="/static/samples/pumpkin.jpg" alt="pumpkin" data-name="pumpkin">
+          <img class="sample" src="/static/samples/carrot.jpg" alt="carrot" data-name="carrot">
+        </div>
+        <p class="note">Click a sample to load it into the preview.</p>
+      </section>
+    </div>
+    <script src="/static/app.js"></script>
+  </body>
+</html>
